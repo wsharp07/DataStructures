@@ -1,8 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version UNKNOWN
-# Visual Studio 2015
-VisualStudioVersion = 14.0.0.0
-MinimumVisualStudioVersion = 10.0.0.1
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTree.Lib", "BTree.Lib\BTree.Lib.csproj", "{E7769EC7-AA24-4123-9089-490BB9B7D37A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure.Tests", "DataStructure.Tests\DataStructure.Tests.csproj", "{6269F92B-A0B1-4D63-8888-F312DD5EE700}"

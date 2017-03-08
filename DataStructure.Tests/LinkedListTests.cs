@@ -9,7 +9,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertFirst_Expect_EqualHead()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
 
             Assert.NotNull(linkedList.Head);
@@ -19,7 +19,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertLast_Expect_EqualTail()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertLast(2);
 
             Assert.NotNull(linkedList.Tail);
@@ -29,7 +29,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertFirstTwoValues_Expect_LastEqualHead_FirstEqualTail()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 
@@ -40,7 +40,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertLastTwoValues_Expect_LastEqualTail_FirstEqualHead()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertLast(2);
             linkedList.InsertLast(3);
 
@@ -51,7 +51,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertFirstTwoValues_Expect_CountEqualTwo()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 
@@ -61,7 +61,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertLastTwoValues_Expect_CountEqualTwo()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertLast(2);
             linkedList.InsertLast(3);
 
@@ -71,7 +71,7 @@ namespace DataStructure.Tests
         [Fact]
         public void LinkedListToArray_Expect_AllValuesIncluded()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertLast(2);
             linkedList.InsertLast(3);
             linkedList.InsertFirst(6);
@@ -86,7 +86,7 @@ namespace DataStructure.Tests
         public void RemoveValue_Expect_ValueWasRemoved()
         {
             int valueToBeRemoved = 3;
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertLast(2);
             linkedList.InsertLast(valueToBeRemoved);
             linkedList.Remove(valueToBeRemoved);
@@ -100,7 +100,7 @@ namespace DataStructure.Tests
         public void RemoveValue_Expect_CountDecreasesBy1()
         {
             int valueToBeRemoved = 3;
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertLast(2);
             linkedList.InsertLast(valueToBeRemoved);
             linkedList.Remove(valueToBeRemoved);
@@ -111,7 +111,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertThree_Expect_FindThree()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 
@@ -124,7 +124,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertNodeInMiddle_Expect_OrderPersisted()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 
@@ -139,7 +139,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertNodeAfterInMiddle_Expect_CorrectCount()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 
@@ -151,7 +151,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertNodeBeforeInMiddle_Expect_OrderPersisted()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 
@@ -166,7 +166,7 @@ namespace DataStructure.Tests
         [Fact]
         public void InsertNodeBeforeInMiddle_Expect_CorrectCount()
         {
-            var linkedList = new LList();
+            var linkedList = new WsLinkedList();
             linkedList.InsertFirst(2);
             linkedList.InsertFirst(3);
 

@@ -39,10 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISingleLListNode.cs" />
-    <Compile Include="ILList.cs" />
-    <Compile Include="LList.cs" />
-    <Compile Include="SingleLListNode.cs" />
+    <Compile Include="ISingleLinkedListNode.cs" />
+    <Compile Include="ISingleLinkedList.cs" />
+    <Compile Include="WsLinkedList.cs" />
+    <Compile Include="SingleLinkedListNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

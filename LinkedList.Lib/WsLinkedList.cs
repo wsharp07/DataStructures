@@ -2,13 +2,13 @@
 
 namespace LinkedList.Lib
 {
-    public class LList : ILList<int>
+    public class WsLinkedList : ISingleLinkedList<int>
     {
-        public ISingleLListNode<int> Head { get; private set; }
-        public ISingleLListNode<int> Tail { get; private set; }
+        public ISingleLinkedListNode<int> Head { get; private set; }
+        public ISingleLinkedListNode<int> Tail { get; private set; }
         public int Count { get; private set; }
 
-        public LList()
+        public WsLinkedList()
         {
             Count = 0;
         }
@@ -17,7 +17,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var node = new SingleLListNode(value);
+            var node = new SingleLinkedListNode(value);
 
             if (Head == null)
             {
@@ -35,7 +35,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var nodeToInsert = new SingleLListNode(valueToInsert);
+            var nodeToInsert = new SingleLinkedListNode(valueToInsert);
             var node = Find(valueToFind);
 
             if (node == null)
@@ -51,7 +51,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var node = new SingleLListNode(value);
+            var node = new SingleLinkedListNode(value);
 
             if (Head == null)
             {
@@ -69,7 +69,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var nodeToInsert = new SingleLListNode(valueToInsert);
+            var nodeToInsert = new SingleLinkedListNode(valueToInsert);
             var current = Head;
             var previous = current;
 
@@ -109,7 +109,7 @@ namespace LinkedList.Lib
             }
         }
 
-        public ISingleLListNode<int> Find(int value)
+        public ISingleLinkedListNode<int> Find(int value)
         {
             var current = this.Head;
 
@@ -129,14 +129,12 @@ namespace LinkedList.Lib
         public int[] ToArray()
         {
             int[] result = new int[Count];
-            int index = 0;
 
             var current = this.Head;
-            while (current != null)
+            for (int i = 0; i < Count; i++)
             {
-                result[index] = current.Value;
+                result[i] = current.Value;
                 current = current.Next;
-                index++;
             }
 
             return result;

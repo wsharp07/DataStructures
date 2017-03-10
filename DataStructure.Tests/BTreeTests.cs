@@ -25,6 +25,16 @@ namespace DataStructure.Tests
         }
 
         [Fact]
+        public void InitSeven_AddOne_ExpectSevenAsParent()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(1);
+
+            Assert.NotNull(tree.Root.Left.Parent);
+            Assert.Equal(7, tree.Root.Left.Parent.Value);
+        }
+
+        [Fact]
         public void InitSeven_AddEight_ExpectRight()
         {
             var tree = new BinaryTree(7);
@@ -66,6 +76,70 @@ namespace DataStructure.Tests
 
             Assert.Equal(6, level1.Left.Value);
             Assert.Equal(5, level2.Left.Value);
+        }
+
+        [Fact]
+        public void InitSeven_AddSix_AddFive_ExpectFiveHasParentSix()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(6);
+            tree.Insert(5);
+
+            var level2 = tree.Root.Left;
+
+            Assert.NotNull(level2.Left.Parent);
+            Assert.Equal(6, level2.Left.Parent.Value);
+        }
+
+        [Fact]
+        public void FindKnownNode_Expect_Found()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(3);
+            tree.Insert(2);
+            tree.Insert(8);
+
+            var nodeToFind = tree.Find(8);
+            Assert.Equal(8, nodeToFind.Value);
+        }
+
+        [Fact]
+        public void FindMissingNode_Expect_Null()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(3);
+            tree.Insert(2);
+
+            var nodeToFind = tree.Find(10);
+            Assert.Null(nodeToFind);
+        }
+
+        [Fact]
+        public void RemoveLeafNode_Expect_Removed()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(3);
+            tree.Insert(2);
+
+            tree.Remove(2);
+
+            var removedNode = tree.Find(2);
+            Assert.Null(removedNode);
+        }
+
+        [Fact]
+        public void RemoveNodeWithChild_Expect_Removed()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(3);
+            tree.Insert(2);
+
+            tree.Remove(3);
+
+            var removedNode = tree.Find(3);
+            var nodeToFind = tree.Find(2);
+            Assert.Null(removedNode);
+            Assert.Equal(7, nodeToFind.Parent.Value);
         }
     }
 }

@@ -2,13 +2,14 @@
 
 namespace LinkedList.Lib
 {
-    public class WsLinkedList : ISingleLinkedList<int>
+    public class WsDoubleLinkedList : IDoubleLinkedList<int>
     {
-        public ISingleLinkedListNode<int> Head { get; private set; }
-        public ISingleLinkedListNode<int> Tail { get; private set; }
+        public IDoubleLinkedListNode<int> Head { get; private set; }
+        public IDoubleLinkedListNode<int> Tail { get; private set; }
         public int Count { get; private set; }
 
-        public WsLinkedList()
+
+        public WsDoubleLinkedList()
         {
             Count = 0;
         }
@@ -17,7 +18,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var node = new SingleLinkedListNode(value);
+            var node = new DoubleLinkedListNode(value);
 
             if (Head == null)
             {
@@ -27,6 +28,7 @@ namespace LinkedList.Lib
             else
             {
                 node.Next = Head;
+                Head.Previous = node;
                 Head = node;
             }
         }
@@ -35,7 +37,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var nodeToInsert = new SingleLinkedListNode(valueToInsert);
+            var nodeToInsert = new DoubleLinkedListNode(valueToInsert);
             var node = Find(valueToFind);
 
             if (node == null)
@@ -44,6 +46,7 @@ namespace LinkedList.Lib
             }
 
             nodeToInsert.Next = node.Next;
+            nodeToInsert.Previous = node;
             node.Next = nodeToInsert;
         }
 
@@ -51,7 +54,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var node = new SingleLinkedListNode(value);
+            var node = new DoubleLinkedListNode(value);
 
             if (Head == null)
             {
@@ -61,6 +64,7 @@ namespace LinkedList.Lib
             else
             {
                 Tail.Next = node;
+                node.Previous = Tail;
                 Tail = node;
             }
         }
@@ -69,7 +73,7 @@ namespace LinkedList.Lib
         {
             IncrementCount();
 
-            var nodeToInsert = new SingleLinkedListNode(valueToInsert);
+            var nodeToInsert = new DoubleLinkedListNode(valueToInsert);
             var current = Head;
             var previous = current;
 
@@ -78,7 +82,9 @@ namespace LinkedList.Lib
                 if (current.Value == valueToFind)
                 {
                     nodeToInsert.Next = current;
+                    current.Previous = nodeToInsert;
                     previous.Next = nodeToInsert;
+                    nodeToInsert.Previous = previous;
                     break;
                 }
 
@@ -100,7 +106,12 @@ namespace LinkedList.Lib
             {
                 if (current.Next.Value == value)
                 {
-                    current.Next = current.Next.Next;
+                    var next = current.Next.Next;
+                    current.Next = next;
+
+                    if (current.Next != null)
+                        next.Previous = current.Next;
+
                     DecrementCount();
                     break;
                 }
@@ -109,7 +120,7 @@ namespace LinkedList.Lib
             }
         }
 
-        public ISingleLinkedListNode<int> Find(int value)
+        public IDoubleLinkedListNode<int> Find(int value)
         {
             var current = this.Head;
 

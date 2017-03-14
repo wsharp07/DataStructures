@@ -1,10 +1,11 @@
-﻿namespace BTreeMono.Lib
+﻿namespace BTree.Lib
 {
-    public interface IBinaryTree
+    public interface IBinaryTree<T>
     {
-        void Insert(int value);
-        void Remove(int value);
-        ITreeNode Find(int value);
+        void Insert(T value);
+        void Remove(T value);
+        ITreeNode Find(T value);
+        T FindMinimum(ITreeNode node);
         bool IsEmpty();
     }
 }

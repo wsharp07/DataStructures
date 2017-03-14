@@ -1,5 +1,5 @@
 ﻿using System;
-using BTreeMono.Lib;
+using BTree.Lib;
 using Xunit;
 
 namespace DataStructure.Tests
@@ -128,6 +128,23 @@ namespace DataStructure.Tests
         }
 
         [Fact]
+        public void LongTreeRemoveRightLeafNode_Expect_Removed()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(8);
+            tree.Insert(9);
+            tree.Insert(10);
+            tree.Insert(11);
+            tree.Insert(12);
+            tree.Insert(13);
+
+            tree.Remove(13);
+
+            var removedNode = tree.Find(13);
+            Assert.Null(removedNode);
+        }
+
+        [Fact]
         public void RemoveNodeWithChild_Expect_Removed()
         {
             var tree = new BinaryTree(7);
@@ -140,6 +157,55 @@ namespace DataStructure.Tests
             var nodeToFind = tree.Find(2);
             Assert.Null(removedNode);
             Assert.Equal(7, nodeToFind.Parent.Value);
+        }
+
+        [Fact]
+        public void LongTreeRemoveNodeWithChild_Expect_Removed()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(6);
+            tree.Insert(5);
+            tree.Insert(4);
+            tree.Insert(3);
+            tree.Insert(2);
+            tree.Insert(1);
+
+            tree.Remove(3);
+
+            var removedNode = tree.Find(3);
+            var nodeToFind = tree.Find(2);
+            Assert.Null(removedNode);
+            Assert.Equal(4, nodeToFind.Parent.Value);
+        }
+
+        [Fact]
+        public void RemoveNodeWithBothChildren_Expect_Removed()
+        {
+            var tree = new BinaryTree(7);
+            tree.Insert(3);
+            tree.Insert(2);
+            tree.Insert(4);
+            tree.Remove(3);
+
+            var removedNode = tree.Find(3);
+            var nodeToFind = tree.Find(4);
+            Assert.Null(removedNode);
+            Assert.Equal(7, nodeToFind.Parent.Value);
+        }
+
+        [Fact]
+        public void FindMinimumRecursive()
+        {
+            var tree = new BinaryTree(8);
+            tree.Insert(4);
+            tree.Insert(1);
+            tree.Insert(6);
+            tree.Insert(5);
+            tree.Insert(7);
+
+            var x = tree.Find(6);
+            var sut = tree.FindMinimum(x);
+            Assert.Equal(5, sut);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BTreeMono.Lib
+﻿namespace BTree.Lib
 {
     public class TreeNode : ITreeNode
     {
@@ -12,7 +12,7 @@
             Parent = parent;
         }
 
-        public int Value { get; }
+        public int Value { get; set;  }
         public ITreeNode Parent { get; set; }
         public ITreeNode Left { get; set; }
         public ITreeNode Right { get; set; }

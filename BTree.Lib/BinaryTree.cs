@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BTreeMono.Lib
+namespace BTree.Lib
 {
-    public class BinaryTree : IBinaryTree
+    public class BinaryTree : IBinaryTree<int>
     {
         private ITreeNode _root;
         public ITreeNode Root => _root;
@@ -14,53 +14,67 @@ namespace BTreeMono.Lib
 
         public void Remove(int value)
         {
-            ITreeNode nodeToDelete = Find(value);
+            _root = RemoveRecursive(_root, value);
 
-            if (nodeToDelete == null)
+        }
+
+        private ITreeNode RemoveRecursive(ITreeNode rootNode, int value)
+        {
+            // Base Case (Tree Empty)
+            if (rootNode == null)  return rootNode;
+
+            // Recurse the tree
+            if (value < rootNode.Value)
             {
-                throw new ArgumentException($"Unable to find the node given value: '{value}'. Are you sure it exists?");
+                rootNode.Left = RemoveRecursive(rootNode.Left, value);
             }
-
-            // Leaf node
-            if (nodeToDelete.Left == null && nodeToDelete.Right == null)
+            else if (value > rootNode.Value)
             {
-                var parent = nodeToDelete.Parent;
-                if (nodeToDelete == parent.Left)
-                {
-                    parent.Left = null;
-                }
-                else
-                {
-                    parent.Right = null;
-                }
-            }
-
-            // Has a child
-            else if (nodeToDelete.Left == null || nodeToDelete.Right == null)
-            {
-                var child =
-                    nodeToDelete.Left ?? nodeToDelete.Right;
-
-                var parent = nodeToDelete.Parent;
-
-                if (nodeToDelete == parent.Left)
-                {
-                    parent.Left = child;
-                    child.Parent = parent;
-                }
-                else
-                {
-                    parent.Right = child;
-                    child.Parent = parent;
-                }
-            }
-
-            // Has both children
-            else if (nodeToDelete.Left != null && nodeToDelete.Right != null)
-            {
+                rootNode.Right = RemoveRecursive(rootNode.Right, value);
 
             }
 
+            // Value is equal, node to delete
+            else
+            {
+                // One child
+                if (rootNode.Left == null)
+                {
+                    if (rootNode.Right != null)
+                        rootNode.Right.Parent = rootNode.Parent;
+
+                    return rootNode.Right;
+                }
+
+                if (rootNode.Right == null)
+                {
+                    if (rootNode.Left != null)
+                        rootNode.Left.Parent = rootNode.Parent;
+
+                    return rootNode.Left;
+                }
+
+
+                // node with two children: Get the inorder successor (smallest
+                // in the right subtree)
+                rootNode.Value = FindMinimum(rootNode.Right);
+
+                // Delete the inorder successor
+                rootNode.Right = RemoveRecursive(rootNode.Right, rootNode.Value);
+            }
+
+            return rootNode;
+        }
+
+        public int FindMinimum(ITreeNode node)
+        {
+            int minimumValue = node.Value;
+            while (node.Left != null)
+            {
+                minimumValue = node.Left.Value;
+                node = node.Left;
+            }
+            return minimumValue;
         }
 
         public ITreeNode Find(int value)
@@ -88,6 +102,8 @@ namespace BTreeMono.Lib
 
             return node;
         }
+
+
 
         public bool IsEmpty()
         {

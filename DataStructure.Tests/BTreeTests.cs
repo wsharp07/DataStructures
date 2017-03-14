@@ -181,14 +181,16 @@ namespace DataStructure.Tests
         [Fact]
         public void RemoveNodeWithBothChildren_Expect_Removed()
         {
-            var tree = new BinaryTree(7);
-            tree.Insert(3);
-            tree.Insert(2);
+            var tree = new BinaryTree(8);
             tree.Insert(4);
-            tree.Remove(3);
+            tree.Insert(1);
+            tree.Insert(6);
+            tree.Insert(5);
+            tree.Insert(7);
+            tree.Remove(6);
 
-            var removedNode = tree.Find(3);
-            var nodeToFind = tree.Find(4);
+            var removedNode = tree.Find(6);
+            var nodeToFind = tree.Find(5);
             Assert.Null(removedNode);
             Assert.Equal(7, nodeToFind.Parent.Value);
         }

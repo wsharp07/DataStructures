@@ -34,7 +34,7 @@ namespace BTree.Lib
 
             }
 
-            // Value is equal, node to delete
+            // Value is equal, must be the node to delete
             else
             {
                 // One child
@@ -55,11 +55,12 @@ namespace BTree.Lib
                 }
 
 
-                // node with two children: Get the inorder successor (smallest
-                // in the right subtree)
+                // Two children
+                // Find the successor, which would be the minimum, and assign its value to the node we are trying to remove
+                // Effectively this "deletes" the node
                 rootNode.Value = FindMinimum(rootNode.Right);
 
-                // Delete the inorder successor
+                // Remove the successor
                 rootNode.Right = RemoveRecursive(rootNode.Right, rootNode.Value);
             }
 

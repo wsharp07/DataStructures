@@ -11,4 +11,4 @@ A library of cross platform C# data structures
 * Stack
 * Queue
 
-Made with :heart: on MacOS
+Made with :heart: on MacOS using JetBrains Rider EAP

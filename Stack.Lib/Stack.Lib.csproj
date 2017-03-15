@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6269F92B-A0B1-4D63-8888-F312DD5EE700}</ProjectGuid>
+    <ProjectGuid>{2AB05796-9B4E-4A8A-AB56-20B56994E8B5}</ProjectGuid>
     <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataStructure.Tests</RootNamespace>
-    <AssemblyName>DataStructure.Tests</AssemblyName>
+    <RootNamespace>Stack.Lib</RootNamespace>
+    <AssemblyName>Stack.Lib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,39 +37,11 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
-      <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
-      <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
-      <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
-      <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BTreeTests.cs" />
-    <Compile Include="DoubleLinkedListTests.cs" />
-    <Compile Include="LinkedListTests.cs" />
+    <Compile Include="IStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StackTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BTree.Lib\BTree.Lib.csproj">
-      <Project>{E7769EC7-AA24-4123-9089-490BB9B7D37A}</Project>
-      <Name>BTree.Lib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LinkedList.Lib\LinkedList.Lib.csproj">
-      <Project>{57CB9332-BA2F-460F-9BD6-6DBFC5683B7D}</Project>
-      <Name>LinkedList.Lib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Stack.Lib\Stack.Lib.csproj">
-      <Project>{2AB05796-9B4E-4A8A-AB56-20B56994E8B5}</Project>
-      <Name>Stack.Lib</Name>
-    </ProjectReference>
+    <Compile Include="WsStack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

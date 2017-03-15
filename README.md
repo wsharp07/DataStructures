@@ -6,9 +6,9 @@ A library of cross platform C# data structures
 **Implemented**
 * Binary Tree
 * Linked List
+* Stack
 
 **Next Up**
-* Stack
 * Queue
 
 Made with :heart: on MacOS using JetBrains Rider EAP

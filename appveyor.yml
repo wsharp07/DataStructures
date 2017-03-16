@@ -3,3 +3,6 @@ before_build:
 - cmd: nuget restore
 build:
   verbosity: minimal
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: /4k8f4JkNzu6jKVBJM2cCktQqmh+xJz/pzfg3096hLxX2fdmLfADZHvSOgEr1n2L

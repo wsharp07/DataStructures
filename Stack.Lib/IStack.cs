@@ -1,4 +1,4 @@
-﻿namespace Stack.Lib
+﻿namespace DataStructures.Stack.Lib
 {
     public interface IStack<T>
     {

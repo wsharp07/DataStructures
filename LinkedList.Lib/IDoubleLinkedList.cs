@@ -1,4 +1,4 @@
-﻿namespace LinkedList.Lib
+﻿namespace DataStructures.LinkedList.Lib
 {
     public interface IDoubleLinkedList<T>
     {

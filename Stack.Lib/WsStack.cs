@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stack.Lib
+namespace DataStructures.Stack.Lib
 {
     public class WsStack<T> : IStack<T>
     {

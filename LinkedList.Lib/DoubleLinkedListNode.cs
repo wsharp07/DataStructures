@@ -1,4 +1,4 @@
-﻿namespace LinkedList.Lib
+﻿namespace DataStructures.LinkedList.Lib
 {
     public class DoubleLinkedListNode : IDoubleLinkedListNode<int>
     {

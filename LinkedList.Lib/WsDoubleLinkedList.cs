@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LinkedList.Lib
+namespace DataStructures.LinkedList.Lib
 {
     public class WsDoubleLinkedList : IDoubleLinkedList<int>
     {

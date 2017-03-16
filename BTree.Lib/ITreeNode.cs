@@ -1,4 +1,4 @@
-﻿namespace BTree.Lib
+﻿namespace DataStructures.BTree.Lib
 {
     public interface ITreeNode
     {

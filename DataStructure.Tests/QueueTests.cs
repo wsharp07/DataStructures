@@ -1,8 +1,8 @@
 ﻿using System;
-using Queue.Lib;
+using DataStructures.Queue.Lib;
 using Xunit;
 
-namespace DataStructure.Tests
+namespace DataStructures.DataStructure.Tests
 {
     public class QueueTests
     {

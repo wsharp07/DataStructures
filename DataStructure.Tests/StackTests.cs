@@ -1,8 +1,8 @@
 ﻿using System;
-using Stack.Lib;
+using DataStructures.Stack.Lib;
 using Xunit;
 
-namespace DataStructure.Tests
+namespace DataStructures.DataStructure.Tests
 {
     public class StackTests
     {

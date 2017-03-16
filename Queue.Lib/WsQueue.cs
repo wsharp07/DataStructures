@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Specialized;
 
-namespace Queue.Lib
+namespace DataStructures.Queue.Lib
 {
     public class WsQueue<T> : IQueue<T>
     {

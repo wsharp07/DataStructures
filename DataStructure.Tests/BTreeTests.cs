@@ -1,8 +1,7 @@
-﻿using System;
-using BTree.Lib;
+﻿using DataStructures.BTree.Lib;
 using Xunit;
 
-namespace DataStructure.Tests
+namespace DataStructures.DataStructure.Tests
 {
     public class Tests
     {

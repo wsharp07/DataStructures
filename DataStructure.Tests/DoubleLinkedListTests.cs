@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using LinkedList.Lib;
+using DataStructures.LinkedList.Lib;
 using Xunit;
 
-namespace DataStructure.Tests
+namespace DataStructures.DataStructure.Tests
 {
     public class DoubleLinkedListTests
     {

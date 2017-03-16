@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BTree.Lib
+﻿namespace DataStructures.BTree.Lib
 {
     public class BinaryTree : IBinaryTree<int>
     {
